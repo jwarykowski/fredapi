@@ -16,7 +16,7 @@ module FREDAPI
 
       include FREDAPI::Client::Category::Children
       include FREDAPI::Client::Category::Related
-      include FREDAPI::Client::Category::Related_tags
+      include FREDAPI::Client::Category::RelatedTags
       include FREDAPI::Client::Category::Series
       include FREDAPI::Client::Category::Tags
 
