@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Fredapi by jonathanchrisp</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>Fredapi</h1>
+          <h2>A Ruby wrapper for the Federal Reserve Economic Data API (FRED)</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/jonathanchrisp/fredapi/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/jonathanchrisp/fredapi/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/jonathanchrisp/fredapi" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <h1>
+<a name="fredapi" class="anchor" href="#fredapi"><span class="octicon octicon-link"></span></a>fredapi</h1>
+
+<p>A Ruby wrapper for the <a href="http://api.stlouisfed.org/docs/fred/overview.html">Federal Reserve Economic Data API</a> (FRED).</p>
+
+<h2>
+<a name="documentation" class="anchor" href="#documentation"><span class="octicon octicon-link"></span></a>Documentation</h2>
+
+<ul>
+<li>Original documenation: <a href="http://api.stlouisfed.org/docs/fred/">http://api.stlouisfed.org/docs/fred/</a>
+</li>
+<li>Gem documentation: <a href="http://rubydoc.info/gems/fredapi">http://rubydoc.info/gems/fredapi</a>
+</li>
+</ul><h2>
+<a name="getting-started" class="anchor" href="#getting-started"><span class="octicon octicon-link"></span></a>Getting Started</h2>
+
+<p>In order to be able to send API requests you'll first need to install the <code>fredapi</code> gem.</p>
+
+<div class="highlight highlight-ruby"><pre><span class="n">gem</span> <span class="n">install</span> <span class="n">fredapi</span>
+</pre></div>
+
+<p>You will need to register and request an API key in order to requests. To register please click <a href="http://research.stlouisfed.org/useraccount/register/step1">here</a>. Request an API key by following the instructions <a href="http://api.stlouisfed.org/api_key.html">here</a>. </p>
+
+<p>Once you have completed the steps above, you can now create an instance of a <code>FREDAPI::Client</code> and set your API key as appropriate:</p>
+
+<div class="highlight highlight-ruby"><pre><span class="nb">require</span> <span class="s1">'fredapi'</span>
+<span class="n">api</span> <span class="o">=</span> <span class="ss">FREDAPI</span><span class="p">:</span><span class="ss">:Client</span><span class="o">.</span><span class="n">new</span> <span class="s1">'api_key'</span> <span class="o">=&gt;</span> <span class="s1">'123456789'</span>
+</pre></div>
+
+<p>If you now look at your <code>FREDAPI</code> object instance it will be similar to the following:</p>
+
+<div class="highlight highlight-ruby"><pre><span class="o">&lt;</span><span class="ss">FREDAPI</span><span class="p">:</span><span class="ss">:Client</span><span class="p">:</span><span class="mh">0x007ffb89bcf3e0</span>
+<span class="vi">@adapter</span><span class="o">=</span><span class="ss">:net_http</span><span class="p">,</span>
+<span class="vi">@api_endpoint</span><span class="o">=</span><span class="s2">"http://api.stlouisfed.org/"</span><span class="p">,</span>
+<span class="vi">@api_key</span><span class="o">=</span><span class="s1">'123456789'</span><span class="p">,</span>
+<span class="vi">@file_type</span><span class="o">=</span><span class="s2">"json"</span><span class="p">,</span>
+<span class="vi">@user_agent</span><span class="o">=</span><span class="s2">"FREDAPI Ruby Gem 1.0.0"</span><span class="o">&gt;</span>
+</pre></div>
+
+<p>By the default the file_type is set to <code>json</code>. This can be easily be changed by simply updating the instance variable to be set to <code>xml</code>:</p>
+
+<div class="highlight highlight-ruby"><pre><span class="n">api</span><span class="o">.</span><span class="n">file_type</span> <span class="o">=</span> <span class="s1">'xml'</span>
+</pre></div>
+
+<p>Please note that when sending any FRED API request if you don't pass an <code>api_key</code> or <code>file_type</code> parameter the values on the <code>FREDAPI::Client</code> instance will be used as default.</p>
+
+<h2>
+<a name="example-requests" class="anchor" href="#example-requests"><span class="octicon octicon-link"></span></a>Example requests</h2>
+
+<p>Now that you have an <code>FREDAPI::Client</code> instance with your API key you can now make requests to the FRED API. For example to send a category get request do the following:</p>
+
+<div class="highlight highlight-ruby"><pre><span class="n">api</span><span class="o">.</span><span class="n">category</span> <span class="s1">'category_id'</span> <span class="o">=&gt;</span> <span class="mi">125</span>
+</pre></div>
+
+<p>The response is returned within a <code>Hashie::Mash</code> instance.</p>
+
+<div class="highlight highlight-ruby"><pre><span class="p">{</span><span class="s2">"categories"</span><span class="o">=&gt;[</span><span class="p">{</span><span class="s2">"id"</span><span class="o">=&gt;</span><span class="mi">125</span><span class="p">,</span> <span class="s2">"name"</span><span class="o">=&gt;</span><span class="s2">"Trade Balance"</span><span class="p">,</span> <span class="s2">"parent_id"</span><span class="o">=&gt;</span><span class="mi">13</span><span class="p">}</span><span class="o">]</span><span class="p">}</span>
+</pre></div>
+
+<p>To find out more information about <code>Hashie</code> please visit the following link: <a href="https://github.com/intridea/hashie">https://github.com/intridea/hashie</a>. To see all documention on the various FREDAPI endpoint method calls please visit: <a href="http://rubydoc.info/gems/fredapi">http://rubydoc.info/gems/fredapi</a></p>
+
+<h2>
+<a name="tests" class="anchor" href="#tests"><span class="octicon octicon-link"></span></a>Tests</h2>
+
+<p>There are a number of unit tests which are included as part of this project, please run:</p>
+
+<div class="highlight highlight-ruby"><pre><span class="n">rspec</span> <span class="n">spec</span>
+</pre></div>
+
+<p>Please note that a number of tests still need to be added so I don't currently have complete coverage, subject to workload these will be slowly added over the next few months.</p>
+
+<h2>
+<a name="feedback" class="anchor" href="#feedback"><span class="octicon octicon-link"></span></a>Feedback</h2>
+
+<p>I would be more than happy to recieve feedback, please email me at: <a href="mailto:jonathan.chrisp@gmail.com">jonathan.chrisp@gmail.com</a>.</p>
+        </section>
+
+        <footer>
+          Fredapi is maintained by <a href="https://github.com/jonathanchrisp">jonathanchrisp</a><br>
+          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+                  <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-38101452-14");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+      </div>
+    </div>
+  </body>
+</html>
