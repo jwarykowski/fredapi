@@ -1,7 +1,7 @@
-require 'bwapi/connection'
-require 'bwapi/request'
+require 'fredapi/connection'
+require 'fredapi/request'
 
-require 'bwapi/client/category'
+require 'fredapi/client/category'
 
 module FREDAPI
   # Client class to create FREDAPI instances
@@ -17,13 +17,11 @@ module FREDAPI
       Configuration::OPTION_KEYS.each do |k|
         send "#{k}=", opts[k]
       end
-
-      netrc_credentials opts[:netrc]
     end
 
     include FREDAPI::Connection
     include FREDAPI::Request
 
-    include BWAPI::Client::Category
+    include FREDAPI::Client::Category
   end
 end
