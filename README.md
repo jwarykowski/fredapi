@@ -1,3 +1,5 @@
+[![Gem Version](https://badge.fury.io/rb/fredapi.png)](http://badge.fury.io/rb/fredapi)
+
 # fredapi
 A Ruby wrapper for the [Federal Reserve Economic Data API](http://api.stlouisfed.org/docs/fred/overview.html) (FRED).
 
