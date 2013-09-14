@@ -17,7 +17,6 @@ module FREDAPI
         end
 
         conn.request :json
-        conn.use Faraday::Response::BrandwatchError
         conn.use FaradayMiddleware::FollowRedirects
         conn.use FaradayMiddleware::Mashify
         conn.use FaradayMiddleware::ParseJson, :content_type => /\bjson$/
