@@ -1,3 +1,8 @@
+[![Gem Version](https://badge.fury.io/rb/fredapi.png)](http://badge.fury.io/rb/fredapi)
+[![Build Status](https://travis-ci.org/jonathanchrisp/fredapi.png?branch=master)](https://travis-ci.org/jonathanchrisp/fredapi)
+[![Dependency Status](https://gemnasium.com/jonathanchrisp/fredapi.png)](https://gemnasium.com/jonathanchrisp/fredapi)
+[![Code Climate](https://codeclimate.com/github/jonathanchrisp/fredapi.png)](https://codeclimate.com/github/jonathanchrisp/fredapi)
+
 # fredapi
 A Ruby wrapper for the [Federal Reserve Economic Data API](http://api.stlouisfed.org/docs/fred/overview.html) (FRED).
 
