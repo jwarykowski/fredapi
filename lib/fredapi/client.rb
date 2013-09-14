@@ -2,6 +2,13 @@ require 'fredapi/connection'
 require 'fredapi/request'
 
 require 'fredapi/client/category'
+require 'fredapi/client/related_tags'
+require 'fredapi/client/release'
+require 'fredapi/client/releases'
+require 'fredapi/client/series'
+require 'fredapi/client/source'
+require 'fredapi/client/sources'
+require 'fredapi/client/tags'
 
 module FREDAPI
   # Client class to create FREDAPI instances
@@ -22,6 +29,13 @@ module FREDAPI
     include FREDAPI::Connection
     include FREDAPI::Request
 
+    # API endpoints
     include FREDAPI::Client::Category
+    include FREDAPI::Client::Release
+    include FREDAPI::Client::Releases
+    include FREDAPI::Client::Series
+    include FREDAPI::Client::Source
+    include FREDAPI::Client::Tags
+
   end
 end
