@@ -5,11 +5,11 @@ module FREDAPI
   module Configuration
 
     OPTION_KEYS = [
-      :adapter,
-      :api_endpoint,
-      :user_agent,
-      :api_key,
-      :file_type
+      'adapter',
+      'api_endpoint',
+      'user_agent',
+      'api_key',
+      'file_type'
     ].freeze
 
     DEFAULT_ADAPTER       = Faraday.default_adapter
