@@ -72,9 +72,9 @@ module FREDAPI
     # @param opts [Hash] Request parameters
     # @return [Hashie::Mash] Response
     def request method, path, opts={}
-      conn_options      = connection_options opts
-      opts['api_key']   = api_key
-      opts['file_type'] = file_type
+      conn_options = connection_options opts
+      opts['api_key'] = api_key unless opts.has_key? 'api_key'
+      opts['file_type'] = file_type unless opts.has_key? 'file_type'
 
       response = connection(conn_options).send(method) do |request|
         case method
