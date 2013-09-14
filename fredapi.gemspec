@@ -3,8 +3,8 @@ require File.dirname(__FILE__) + "/lib/fredapi/version"
 Gem::Specification.new do |s|
   s.name        = 'fredapi'
   s.version     = FREDAPI::VERSION
-  s.date        = '2013-09-13'
-  s.summary     = 'FRED API Wrapper'
+  s.date        = '2013-09-14'
+  s.summary     = 'FRED API Ruby Wrapper'
   s.description = 'A Ruby wrapper for the FRED API'
   s.author      = 'Jonathan Chrisp'
   s.email       = 'jonathan.chrisp@gmail.com'
