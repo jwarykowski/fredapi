@@ -20,6 +20,7 @@ module FREDAPI
         conn.use FaradayMiddleware::FollowRedirects
         conn.use FaradayMiddleware::Mashify
         conn.use FaradayMiddleware::ParseJson, :content_type => /\bjson$/
+        conn.use FaradayMiddleware::ParseXml, :content_type => /\bxml$/
         conn.adapter adapter
       end
 
