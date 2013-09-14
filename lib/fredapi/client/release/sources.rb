@@ -6,7 +6,7 @@ module FREDAPI
 
         # Get the sources on a release of economic data
         def release_sources opts={}
-          get "fred/releases/sources", opts
+          get "fred/release/sources", opts
         end
 
       end
