@@ -1,5 +1,6 @@
 require 'fredapi/version'
 require 'fredapi/configuration'
+require 'fredapi/client'
 
 # FREDAPI namespace module
 module FREDAPI
@@ -19,6 +20,7 @@ module FREDAPI
       new.send method, *args, &block
     end
 
+    # Check if method responds_to?
     def respond_to? method, include_private=false
       new.respond_to?(method, include_private) || super(method, include_private)
     end
