@@ -19,3 +19,4 @@ report.html
 .yardoc
 _yardoc
 doc/
+.DS_Store
