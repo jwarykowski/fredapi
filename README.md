@@ -2,6 +2,7 @@
 [![Build Status](https://travis-ci.org/jonathanchrisp/fredapi.png?branch=master)](https://travis-ci.org/jonathanchrisp/fredapi)
 [![Dependency Status](https://gemnasium.com/jonathanchrisp/fredapi.png)](https://gemnasium.com/jonathanchrisp/fredapi)
 [![Code Climate](https://codeclimate.com/github/jonathanchrisp/fredapi.png)](https://codeclimate.com/github/jonathanchrisp/fredapi)
+[![Coverage Status](https://coveralls.io/repos/jonathanchrisp/fredapi/badge.png)](https://coveralls.io/r/jonathanchrisp/fredapi)
 
 # fredapi
 A Ruby wrapper for the [Federal Reserve Economic Data API](http://api.stlouisfed.org/docs/fred/overview.html) (FRED).
@@ -17,7 +18,7 @@ In order to be able to send API requests you'll first need to install the `freda
 gem install fredapi
 ```
 
-You will need to register and request an API key in order to requests. To register please click [here](http://research.stlouisfed.org/useraccount/register/step1). Request an API key by following the instructions [here](http://api.stlouisfed.org/api_key.html). 
+You will need to register and request an API key in order to requests. To register please click [here](http://research.stlouisfed.org/useraccount/register/step1). Request an API key by following the instructions [here](http://api.stlouisfed.org/api_key.html).
 
 Once you have completed the steps above, you can now create an instance of a `FREDAPI::Client` and set your API key as appropriate:
 
@@ -66,7 +67,7 @@ There are a number of unit tests which are included as part of this project, ple
 ```ruby
 rspec spec
 ```
-      
+
 Please note that a number of tests still need to be added so I don't currently have complete coverage, subject to workload these will be slowly added over the next few months.
 
 ## Feedback
