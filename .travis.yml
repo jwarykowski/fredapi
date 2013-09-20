@@ -1,7 +1,15 @@
 language: ruby
 rvm:
-  - 2.0.0
-  - 1.9.3
-  - 1.9.2
+- 2.0.0
+- 1.9.3
+- 1.9.2
 
-script: bundle exec rspec spec
+deploy:
+  provider: rubygems
+  api_key:
+    secure: Sp/4Xrahu59AP1NFDdf3vsfpdoH0NzG9HtUdkwCVprfvBArHXwNcQi5b2i1m14q6M+njCtwmOg/OlqAoInsFf6QQXm9PZGjM/KZTpAw/YQ6+qmYDKXBpcMuYB/3HltBm4TJQ3y1enXPlOxqvI1NO2vcq31KwHn7XV8UvbTS/sfw=
+  gem: fredapi
+  on:
+    repo: jonathanchrisp/fredapi
+
+script: bundle exec rspec
