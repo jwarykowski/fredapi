@@ -1,5 +1,12 @@
 require 'coveralls'
-Coveralls.wear!
+require 'simplecov'
+
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+  Coveralls::SimpleCov::Formatter,
+  SimpleCov::Formatter::HTMLFormatter,
+]
+
+SimpleCov.start
 require 'fredapi'
 
 RSpec.configure do |config|
