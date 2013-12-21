@@ -1,3 +1,4 @@
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/jonathanchrisp/fredapi/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 [![Gem Version](https://badge.fury.io/rb/fredapi.png)](http://badge.fury.io/rb/fredapi)
 [![Build Status](https://travis-ci.org/jonathanchrisp/fredapi.png?branch=master)](https://travis-ci.org/jonathanchrisp/fredapi)
 [![Dependency Status](https://gemnasium.com/jonathanchrisp/fredapi.png)](https://gemnasium.com/jonathanchrisp/fredapi)
